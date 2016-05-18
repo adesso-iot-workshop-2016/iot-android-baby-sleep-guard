@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Sleep-Sensor</string>
+    <string name="action_settings">Settings</string>
+    <string name="measurement_temperature">Temperature</string>
+    <string name="measurement_humidity">Humidity</string>
+    <string name="measurement_noise">noise</string>
+    <string name="measurement_proximity">proximity</string>
+    <string name="measurement_light">light</string>
+    <string name="error_loading_device_data">Error Loading Device</string>
+    <string name="current_reading">Current value</string>
+    <string name="error_loading_transmitters">Error loading transmitters</string>
+    <string name="check_environment">Checking environment:</string>
+</resources>
