@@ -13,14 +13,14 @@ public class AngularSpeedConverter extends ValueConverter{
     private final String unit;
 
     public AngularSpeedConverter(){
-        this.unit = "%";
+        this.unit = "°/s";
     }
 
     @Override
     public String getReadableString(Reading reading) {
         AccelGyroscope.AngularSpeed aas = new Gson().fromJson(reading.value.toString(),
                 AccelGyroscope.AngularSpeed.class);
-        return ("x:" + aas.x + ", y:" + aas.y + ", z:" + aas.z);
+        return ("x: " + aas.x + unit + "\ny: " + aas.y+ unit + "\nz: " + aas.z + unit);
     }
 
     @Override

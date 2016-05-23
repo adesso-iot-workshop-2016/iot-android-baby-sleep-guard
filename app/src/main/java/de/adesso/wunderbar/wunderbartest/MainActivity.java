@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        fab.setVisibility(View.GONE);
     }
 
     @Override
@@ -173,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override public void onCompleted() {}
 
                     @Override public void onError(Throwable e) {
-                        Log.e("MainActivity","loadTransmitters onError " + e.getMessage() + e.getCause());
                         Toast.makeText(MainActivity.this, R.string.error_loading_transmitters, Toast.LENGTH_LONG).show();
                     }
 

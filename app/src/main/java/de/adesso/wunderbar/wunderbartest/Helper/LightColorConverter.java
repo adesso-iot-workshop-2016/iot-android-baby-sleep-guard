@@ -20,7 +20,7 @@ public class LightColorConverter extends ValueConverter{
     public String getReadableString(Reading reading) {
         LightColorProx.Color col = new Gson().fromJson(reading.value.toString(),
                 LightColorProx.Color.class);
-        return ("red:" + col.red + ", green:" + col.green + ", blue:" + col.blue);
+        return ("red: " + getPercentage(col.red,4096) + unit + "\ngreen: " + getPercentage(col.green,4096) + unit +"\nblue: " + getPercentage(col.blue,4096)+ unit);
     }
 
     @Override

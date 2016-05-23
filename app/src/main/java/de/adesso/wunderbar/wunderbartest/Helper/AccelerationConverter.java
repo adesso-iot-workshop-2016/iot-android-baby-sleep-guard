@@ -14,14 +14,14 @@ public class AccelerationConverter extends ValueConverter{
     private double lastDist = 0;
 
     public AccelerationConverter(){
-        this.unit = "%";
+        this.unit = "g";
     }
 
     @Override
     public String getReadableString(Reading reading) {
         AccelGyroscope.Acceleration acc = new Gson().fromJson(reading.value.toString(),
                 AccelGyroscope.Acceleration.class);
-        return ("x: " + acc.x + ", y: " + acc.y + ", z:" + acc.z);
+        return ("x: " + acc.x + unit + "\ny: " + acc.y + unit + "\nz: " + acc.z + unit);
     }
 
     @Override
