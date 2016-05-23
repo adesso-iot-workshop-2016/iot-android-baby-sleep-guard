@@ -37,6 +37,9 @@ public abstract class ValueConverter {
         return bd.doubleValue();
     }
 
+    public int getPercentage(double data, int maxValue){
+        return ((int) Math.round((data / maxValue) * 100));
+    }
 /*
     public int scaleToUiData(SensorType type, Double data) {
         switch (type) {
