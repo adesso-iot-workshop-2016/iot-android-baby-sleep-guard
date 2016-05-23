@@ -11,6 +11,7 @@ import io.relayr.java.model.action.Reading;
 public class AccelerationConverter extends ValueConverter{
 
     private final String unit;
+    private double lastDist = 0;
 
     public AccelerationConverter(){
         this.unit = "%";
@@ -28,7 +29,13 @@ public class AccelerationConverter extends ValueConverter{
         AccelGyroscope.Acceleration acc = new Gson().fromJson(reading.value.toString(),
                 AccelGyroscope.Acceleration.class);
         double dist = Math.sqrt(acc.x*acc.x + acc.y*acc.y + acc.z*acc.z);
-        return dist;
+        if(lastDist==0){
+            lastDist = dist;
+            return 0;
+        }
+        double abs = Math.abs(lastDist - dist);
+        lastDist = dist;
+        return abs;
     }
 
 }

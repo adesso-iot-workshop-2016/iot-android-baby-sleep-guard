@@ -10,16 +10,16 @@ import io.relayr.java.model.action.Reading;
 public class SensorValueInfo {
 
     private final String sensorName;
-    private final int low;
+    private final double low;
     private final int lowColor;
-    private final int high;
+    private final double high;
     private final int highColor;
     private final String lowInfo;
     private final String highInfo;
     private final String normalInfo;
     private ValueConverter converter;
 
-    public SensorValueInfo(String sensorName, int low,int lowColor, int high, int highColor, String lowInfo, String highInfo, String normalInfo, ValueConverter converter){
+    public SensorValueInfo(String sensorName, double low,int lowColor, double high, int highColor, String lowInfo, String highInfo, String normalInfo, ValueConverter converter){
         this.sensorName = sensorName;
         this.low = low;
         this.lowColor = lowColor;

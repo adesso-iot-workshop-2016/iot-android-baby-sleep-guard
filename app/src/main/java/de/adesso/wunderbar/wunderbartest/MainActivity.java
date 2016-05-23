@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView infoView  = (TextView)row.findViewById(R.id.sensor_entry_info);
 
                 nameView.setText(reading.meaning);
-                SensorValueInfo info = SensorValueCollection.getByName(reading.meaning);
+                SensorValueInfo info = SensorValueInfos.getByName(reading.meaning);
                 valueView.setText(info.getReadableString(reading));
                 infoView.setText(info.getInfo(reading));
                 infoView.setTextColor(info.getColor(reading));
