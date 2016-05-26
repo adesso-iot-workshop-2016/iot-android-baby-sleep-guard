@@ -21,7 +21,7 @@ public class SensorValueInfos {
     private static SensorValueInfo angularSpeed = new SensorValueInfo("angularSpeed",10,Color.BLUE,15,Color.RED,"No Movement","Too much movement!","Almost no Movement", new AngularSpeedConverter());
     private static SensorValueInfo acceleration = new SensorValueInfo("acceleration",0,Color.BLUE,0.05,Color.RED,"No Movement","Too much movement!","Almost no Movement",new AccelerationConverter());
     private static SensorValueInfo luminosity = new SensorValueInfo("luminosity",200,Color.RED,500,Color.RED,"Too dark!","Too bright!","Dark enough",new PercentageConverter(4096));
-    private static SensorValueInfo color = new SensorValueInfo("color",0,Color.BLUE,0,Color.BLUE,"Color irrelevant","Color irrelevant","Color irrelevant",new LightColorConverter());
+    private static SensorValueInfo color = new SensorValueInfo("color",0,Color.BLUE,0,Color.BLUE,"Color irrelevant","Color irrelevant","Color irrelevant",new LightColorConverter(4096));
     private static SensorValueInfo proximity = new SensorValueInfo("proximity",100,Color.BLUE,1000,Color.RED,"Nobody is touching","Somebody is touching!","Somebody is near!",new PercentageConverter(2047));
     private static SensorValueInfo noiseLevel = new SensorValueInfo("noiseLevel",135,Color.BLUE,145,Color.RED,"No Sound","Loud noise!","A little noisy",new PercentageConverter(1024));
 

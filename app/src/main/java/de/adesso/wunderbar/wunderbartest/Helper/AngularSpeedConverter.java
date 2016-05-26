@@ -14,6 +14,7 @@ public class AngularSpeedConverter extends ValueConverter{
 
     public AngularSpeedConverter(){
         this.unit = "°/s";
+        this.maxValue = 100;
     }
 
     @Override
@@ -30,5 +31,11 @@ public class AngularSpeedConverter extends ValueConverter{
         double dist = Math.sqrt(aas.x*aas.x + aas.y*aas.y + aas.z*aas.z);
         return dist;
     }
+
+    @Override
+    public int getMaxValue() {
+        return maxValue;
+    }
+
 
 }

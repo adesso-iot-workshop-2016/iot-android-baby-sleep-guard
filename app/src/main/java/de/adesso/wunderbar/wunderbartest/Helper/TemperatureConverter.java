@@ -11,6 +11,7 @@ public class TemperatureConverter extends ValueConverter {
 
     public TemperatureConverter(String unit){
         this.unit = unit;
+        this.maxValue = 100;
     }
 
     @Override
@@ -21,6 +22,11 @@ public class TemperatureConverter extends ValueConverter {
     @Override
     public double getCompareValue(Reading reading) {
         return round((Double) reading.value, 2);
+    }
+
+    @Override
+    public int getMaxValue() {
+        return maxValue;
     }
 
 }

@@ -15,6 +15,7 @@ public class AccelerationConverter extends ValueConverter{
 
     public AccelerationConverter(){
         this.unit = "g";
+        this.maxValue = 100;
     }
 
     @Override
@@ -36,6 +37,11 @@ public class AccelerationConverter extends ValueConverter{
         double abs = Math.abs(lastDist - dist);
         lastDist = dist;
         return abs;
+    }
+
+    @Override
+    public int getMaxValue() {
+        return maxValue;
     }
 
 }

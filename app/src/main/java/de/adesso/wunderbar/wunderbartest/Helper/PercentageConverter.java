@@ -1,7 +1,5 @@
 package de.adesso.wunderbar.wunderbartest.Helper;
 
-import android.util.Log;
-
 import io.relayr.java.model.action.Reading;
 
 /**
@@ -18,7 +16,7 @@ public class PercentageConverter extends ValueConverter {
 
     @Override
     public String getReadableString(Reading reading) {
-        return  getPercentage((double)reading.value,maxValue) + this.unit;
+        return  getPercentage((double)reading.value) + this.unit;
         //return round((Double) reading.value, 2) + this.unit;
     }
 
@@ -26,4 +24,10 @@ public class PercentageConverter extends ValueConverter {
     public double getCompareValue(Reading reading) {
         return round((Double) reading.value, 2);
     }
+
+    @Override
+    public int getMaxValue() {
+        return maxValue;
+    }
+
 }

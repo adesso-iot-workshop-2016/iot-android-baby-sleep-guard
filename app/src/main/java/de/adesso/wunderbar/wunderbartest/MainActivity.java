@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.LineChart;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private Subscription mUserInfoSubscription;
     private boolean logInStarted = false;
     private HashMap<String,View> sensorRows = new HashMap();
-    private LinearLayout container;
-    LayoutInflater inflater;
+    private LinearLayout container = null;
+    private LayoutInflater inflater = null;
+
+    public static final boolean chartsActive = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         container = (LinearLayout)findViewById(R.id.value_list_container);
         inflater =(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        new RelayrSdk.Builder(getApplicationContext()).inMockMode(false).build();
+        RelayrSdk.Builder rsdk = new RelayrSdk.Builder(getApplicationContext()).inMockMode(false);
+        rsdk.build();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +169,13 @@ public class MainActivity extends AppCompatActivity {
                 valueView.setText(info.getReadableString(reading));
                 infoView.setText(info.getInfo(reading));
                 infoView.setTextColor(info.getColor(reading));
+
+                LineChart chart = (LineChart) row.findViewById(R.id.chart);
+                if(chartsActive) {
+                    info.setData(chart, reading);
+                } else {
+                    chart.setVisibility(View.GONE);
+                }
             }
         });
     }

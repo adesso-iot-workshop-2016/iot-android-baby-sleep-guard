@@ -30,4 +30,6 @@ dependencies {
     compile 'io.relayr:android-commons:1.1.0'
 
     compile 'com.google.android.gms:play-services-gcm:8.1.0'
+
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
 }
